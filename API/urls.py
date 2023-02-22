@@ -1,10 +1,12 @@
 from django.urls import path
-from .views import api_list_page ,Api_list_page,api_detail_view,api_create_page,api_update_page
+from .views import api_list_page ,Api_list_page,api_detail_page,api_create_page,api_update_page,API_LIST_PAGE, API_DETAIL_PAGE
 
 urlpatterns=[
     path("home/", api_list_page, name="api-home"),
     path("class/home/", Api_list_page.as_view(),name="Api-home"),
-    path("class/detail/<slug:slug>/", api_detail_view.as_view(), name="class-detail"),
+    path("class/detail/<slug:slug>/", api_detail_page, name="class-detail"),
     path("create/", api_create_page, name="api-create"),
-    path("<slug:slug>/update",api_update_page,name="update")
+    path("<slug:slug>/update",api_update_page,name="update"),
+    path("class/create",API_LIST_PAGE.as_view(), name="class-create"),
+    path("class/retrieve/<slug:slug>/", API_DETAIL_PAGE.as_view(), name="class-details")
 ]

@@ -8,7 +8,7 @@ class News(models.Model):
     reporter = models.ForeignKey(User, on_delete=models.CASCADE)
     date_published= models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now_add=True)
-    slug= models.SlugField(default="me")
+    slug= models.SlugField()
 
     class Meta:
         verbose_name_plural = "News"
